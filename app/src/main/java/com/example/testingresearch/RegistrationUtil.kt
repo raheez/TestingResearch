@@ -4,16 +4,35 @@ object RegistrationUtil {
 
     /**
      *
-     * when
+     * when user name is not empty and password and confirm password matches
+     * when user name is doesnt already exist and password and confirm password matches
+     * when password and confirm password doesnt matches
+     * when password contains less than 2 digits
      *
      */
-    fun checkIsValidRegistration(name:String,
-    password:String,
-    confirmPassword :String):Boolean{
-        if (name.isEmpty()){
+
+    val listOfUsers = listOf<String>("ryan", "philip", "cooper", "raheez")
+    fun checkIsValidRegistration(
+        name: String,
+        password: String,
+        confirmPassword: String
+    ): Boolean {
+        if (name.isEmpty()) {
             return false
-        }else{
-            return true
         }
+
+        if (listOfUsers.contains(name)) {
+            return false
+        }
+
+        if (!password.equals(confirmPassword)) {
+            return false
+        }
+
+        if (password.count { it.isDigit() } < 2) {
+            return false
+        }
+
+        return true
     }
 }
