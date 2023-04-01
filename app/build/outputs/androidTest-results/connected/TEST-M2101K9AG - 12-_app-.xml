@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.example.testingresearch.ResourceComparerTest" tests="2" failures="0" errors="0" skipped="0" time="1.411" timestamp="2023-04-01T08:24:20" hostname="localhost">
+  <properties>
+    <property name="device" value="M2101K9AG - 12" />
+    <property name="flavor" value="" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="stringsAreEqual_returnFalse" classname="com.example.testingresearch.ResourceComparerTest" time="0.015" />
+  <testcase name="stringsAreEqual_returnTrue" classname="com.example.testingresearch.ResourceComparerTest" time="0.002" />
+</testsuite>

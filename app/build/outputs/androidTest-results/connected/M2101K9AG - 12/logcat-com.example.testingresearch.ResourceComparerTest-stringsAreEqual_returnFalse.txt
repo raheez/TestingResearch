@@ -1,0 +1,2 @@
+04-01 12:24:19.465 29592 29614 I TestRunner: started: stringsAreEqual_returnFalse(com.example.testingresearch.ResourceComparerTest)
+04-01 12:24:19.489 29592 29614 I TestRunner: finished: stringsAreEqual_returnFalse(com.example.testingresearch.ResourceComparerTest)
