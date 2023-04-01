@@ -1,5 +1,6 @@
 package com.example.testingresearch
 
+import com.example.testingresearch.sampleTesting.RegistrationUtil
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.testingresearch
+package com.example.testingresearch.sampleTesting
 
 object RegistrationUtil {
 

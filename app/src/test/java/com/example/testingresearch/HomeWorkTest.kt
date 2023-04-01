@@ -1,5 +1,6 @@
 package com.example.testingresearch
 
+import com.example.testingresearch.sampleTesting.HomeWork
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 
@@ -19,7 +20,7 @@ class HomeWorkTest{
     @Test
     fun `check if fibonacci sereis is working`(){
         val result = HomeWork.fib(5)
-        assertThat(result).isEqualTo((HomeWork.fib(3)+HomeWork.fib(4)))
+        assertThat(result).isEqualTo((HomeWork.fib(3)+ HomeWork.fib(4)))
     }
 
 
