@@ -1,2 +1,0 @@
-04-01 12:24:19.497 29592 29614 I TestRunner: started: stringsAreEqual_returnTrue(com.example.testingresearch.ResourceComparerTest)
-04-01 12:24:19.505 29592 29614 I TestRunner: finished: stringsAreEqual_returnTrue(com.example.testingresearch.ResourceComparerTest)
