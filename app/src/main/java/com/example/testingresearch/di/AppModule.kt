@@ -2,6 +2,9 @@ package com.example.testingresearch.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.testingresearch.Repositories.DefaultShoppingRepository
+import com.example.testingresearch.Repositories.ShoppingRepository
+import com.example.testingresearch.data.local.ShoppingDao
 import com.example.testingresearch.data.local.ShoppingItem
 import com.example.testingresearch.data.local.ShoppingItemDatabase
 import com.example.testingresearch.data.remote.PixabayAPI
@@ -41,5 +44,12 @@ object AppModule {
             .build()
             .create(PixabayAPI::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun providesDefaultShoppingRepository(
+        dao: ShoppingDao,
+        api: PixabayAPI
+    ) = DefaultShoppingRepository(dao,api) as ShoppingRepository
 
 }
