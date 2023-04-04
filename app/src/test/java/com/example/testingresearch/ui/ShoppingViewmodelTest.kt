@@ -25,6 +25,5 @@ class ShoppingViewmodelTest{
 
     }
 
-    @Test
-    fun
+
 }
