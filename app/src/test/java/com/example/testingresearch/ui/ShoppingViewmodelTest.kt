@@ -28,11 +28,11 @@ class ShoppingViewmodelTest{
     }
 
     @Test
-    fun `insert shopping item with empty field,return false`(){
-        viewmodel.insertShoppingItem("name","","3.0")
+    fun `insert shopping item with empty name field,return false`(){
+        viewmodel.insertShoppingItem("","","3.0")
 
         val value = viewmodel.insertShoppingItemStatus.getOrAwaitValueTest()
-        assertThat(value.getContentIfNotHandled()).isEqualTo(Status.ERROR)
+        assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.ERROR)
     }
     @Test
     fun `insert shopping item with too long name,return false`(){
