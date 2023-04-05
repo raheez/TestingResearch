@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.testingresearch.Repositories.ShoppingRepository
 import com.example.testingresearch.data.local.ShoppingItem
 import com.example.testingresearch.data.remote.responses.ImageResponse
+import com.example.testingresearch.utils.Constants
 import com.example.testingresearch.utils.Event
 import com.example.testingresearch.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -46,14 +47,36 @@ class ShoppingViewmodel @Inject  constructor(
     }
 
     fun insertShoppingItem(name:String,amountString : String,priceString :String){
+        if (name.isEmpty()||amountString.isEmpty()||priceString.isEmpty()){
+            _insertShoppingItemStatus.postValue(Event(Resource.error("the fields must not be empty",null)))
+            return
+        }
+        if (name.length > Constants.MAX_NAME_LENGTH){
+            _insertShoppingItemStatus.postValue(Event(Resource.error("the name of the item " +
+                    "must not exceed ${Constants.MAX_NAME_LENGTH} characters",null)))
+            return
+        }
 
+        if (priceString.length > Constants.MAX_PRICE_LENGTH){
+            _insertShoppingItemStatus.postValue(Event(Resource.error("the price of the item " +
+                    "must not exceed ${Constants.MAX_PRICE_LENGTH} characters",null)))
+            return
+        }
+
+        val amount = try {
+            amountString.toInt()
+        }
+        catch (e:java.lang.Exception){
+            _insertShoppingItemStatus.postValue(Event(Resource.error("please enter a valid amount",null)))
+            return
+        }
+
+        val shoppingItem = ShoppingItem(name,amount,priceString.toFloat(),_currentImageUrl.value?:"")
+        insertShoppingItemIntoDb(shoppingItem)
+        setCurImageUrl("")
     }
 
     fun searchForImage(imageQuery :String){
 
     }
-
-
-
-
 }
