@@ -14,10 +14,10 @@ interface ShoppingDao {
     suspend fun deleteShoppingItem(shoppingItem: ShoppingItem)
 
     @Query("SELECT * FROM shopping_items")
-    fun observeAllShoppingItem():LiveData<List<ShoppingItem>>
+    fun observeAllShoppingItem(): LiveData<List<ShoppingItem>>
 
     @Query("SELECT SUM(price * amount) FROM shopping_items")
-    fun observeTotalPrice():LiveData<Float>
+    fun observeTotalPrice(): LiveData<Float>
 
 
 }
