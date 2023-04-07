@@ -1,11 +1,13 @@
 package com.example.testingresearch.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.example.testingresearch.MainCoroutineRule
 import com.example.testingresearch.Repositories.FakeShoppingRepositories
 import com.example.testingresearch.getOrAwaitValueTest
 import com.example.testingresearch.utils.Constants
 import com.example.testingresearch.utils.Status
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.MainCoroutineDispatcher
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -17,6 +19,9 @@ class ShoppingViewmodelTest{
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    @get:Rule
+    var mainCoroutineRule = MainCoroutineRule()
 
     @Before
     fun setup(){

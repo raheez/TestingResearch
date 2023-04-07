@@ -74,9 +74,17 @@ class ShoppingViewmodel @Inject  constructor(
         val shoppingItem = ShoppingItem(name,amount,priceString.toFloat(),_currentImageUrl.value?:"")
         insertShoppingItemIntoDb(shoppingItem)
         setCurImageUrl("")
+        _insertShoppingItemStatus.postValue(Event(Resource.success(data = shoppingItem)))
     }
 
     fun searchForImage(imageQuery :String){
-
+        if (imageQuery.isEmpty()){
+            return
+        }
+        _images.value = Event(Resource.loading(null))
+        viewModelScope.launch {
+            val response = repository.searchForImage(imageQuery)
+            _images.value = Event(response)
+        }
     }
 }
